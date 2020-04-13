@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     
     var films:[FilmEntry] = []
+    
+    let tableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,7 @@ class ViewController: UIViewController {
                     let movie = FilmEntry(firstActor: firstActor, locations: locations, releaseYear: releaseYear, title: title)
                     films.append(movie)
                 }
+                tableView.reloadData()
               }
             } catch {
               print("Error deserializing JSON: \(error)")
@@ -44,6 +47,15 @@ class ViewController: UIViewController {
         }
         
         
+    }
+    
+    func setupTableView() {
+      view.addSubview(tableView)
+      tableView.translatesAutoresizingMaskIntoConstraints = false
+      tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+      tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+      tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+      tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
     
