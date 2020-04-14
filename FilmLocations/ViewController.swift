@@ -103,6 +103,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
     let movie = films[indexPath.row]
     cell.textLabel?.text = movie.locations
+    cell.textLabel?.text = movie.locations + " " + movie.releaseYear.value
     return cell
   }
 }
