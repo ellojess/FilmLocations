@@ -13,11 +13,14 @@ class ViewController: UIViewController {
     var films:[FilmEntry] = []
     
     let tableView = UITableView()
-
+    
+    let cellId = "cellId"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         getDataFromFile("locations")
+        setupTableView()
     }
 
     func getDataFromFile(_ fileName:String){
@@ -51,29 +54,35 @@ class ViewController: UIViewController {
     
     func setupTableView() {
       view.addSubview(tableView)
-      tableView.translatesAutoresizingMaskIntoConstraints = false
-      tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-      tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-      tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-      tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        getDataFromFile("locations")
     }
     
     
 
 }
 
-extension FilmEntry {
-    init?(json: [String: Any]) {
-        guard let locations = json["locations"] as? String,
-            let a1 = json["actor_1"] as? String,
-            let year = json["release_year"] as? String,
-            let title = json["title"] as? String
-            else{
-                return nil
-        }
-        self.firstActor = a1
-        self.releaseYear = year
-        self.title = title
-        self.locations = locations
+
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
+    
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return films.count
+  }
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+    let movie = films[indexPath.row]
+    cell.textLabel?.text = movie.locations
+    return cell
+  }
 }
