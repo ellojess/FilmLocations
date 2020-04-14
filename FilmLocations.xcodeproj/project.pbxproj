@@ -15,6 +15,7 @@
 		C0D73B6124451E5300391533 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0D73B5F24451E5300391533 /* LaunchScreen.storyboard */; };
 		C0D73B6924451F8C00391533 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = C0D73B6824451F8C00391533 /* locations.json */; };
 		C0D73B6B2445265200391533 /* FilmEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D73B6A2445265200391533 /* FilmEntry.swift */; };
+		C0D73B6D2445367100391533 /* FilmEntryCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D73B6C2445367100391533 /* FilmEntryCodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C0D73B6224451E5300391533 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0D73B6824451F8C00391533 /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
 		C0D73B6A2445265200391533 /* FilmEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmEntry.swift; sourceTree = "<group>"; };
+		C0D73B6C2445367100391533 /* FilmEntryCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmEntryCodable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				C0D73B5424451E4B00391533 /* AppDelegate.swift */,
 				C0D73B5624451E4B00391533 /* SceneDelegate.swift */,
 				C0D73B5824451E4B00391533 /* ViewController.swift */,
+				C0D73B6C2445367100391533 /* FilmEntryCodable.swift */,
 				C0D73B6A2445265200391533 /* FilmEntry.swift */,
 				C0D73B5A24451E4B00391533 /* Main.storyboard */,
 				C0D73B5D24451E5300391533 /* Assets.xcassets */,
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0D73B6D2445367100391533 /* FilmEntryCodable.swift in Sources */,
 				C0D73B6B2445265200391533 /* FilmEntry.swift in Sources */,
 				C0D73B5924451E4B00391533 /* ViewController.swift in Sources */,
 				C0D73B5524451E4B00391533 /* AppDelegate.swift in Sources */,
